@@ -39,10 +39,9 @@ class _QuizePageState extends State<QuizePage> {
                         Text(
                           "Score : $finalScore",
                           style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.yellow,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 24,
+                              color: Colors.yellow,
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -81,75 +80,76 @@ class _QuizePageState extends State<QuizePage> {
                 SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      MaterialButton(
-                        color: Colors.blueGrey,
-                        onPressed: () {
-                          if (quizBrain.choices[questionNumber][0] ==
-                              quizBrain.correctAnswers[questionNumber]) {
-                            debugPrint("Correcct");
-                            finalScore++;
+                 Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    MaterialButton(
+                      color: Colors.blueGrey,
+                      onPressed: () {
+                        if (quizBrain.choices[questionNumber][0] ==
+                            quizBrain.correctAnswers[questionNumber]) {
+                          debugPrint("Correcct");
+                          finalScore++;
+                        } else {
+                          debugPrint("Wrong!");
+                        }
+                        setState(() {
+                          if (questionNumber ==
+                              quizBrain.questions.length - 1) {
+                            Alert(
+                                    context: context,
+                                    title: "Quize Finished",
+                                    desc: "Your Total Score is :$finalScore")
+                                .show();
                           } else {
-                            debugPrint("Wrong!");
+                            questionNumber++;
                           }
-                          setState(() {
-                            if (questionNumber ==
-                                quizBrain.questions.length - 1) {
-                              Alert(
-                                      context: context,
-                                      title: "Quize Finished",
-                                      desc: "Your Total Score is :$finalScore")
-                                  .show();
-                            } else {
-                              questionNumber++;
-                            }
-                          });
-                        },
-                        child: Text(
-                          "${quizBrain.choices[questionNumber][0]}",
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        });
+                      },
+                      child: Text(
+                        "${quizBrain.choices[questionNumber][0]}",
+                        style: TextStyle(color: Colors.white),
                       ),
-                      MaterialButton(
-                        color: Colors.blueGrey,
-                        onPressed: () {
-                          if (quizBrain.choices[questionNumber][1] ==
-                              quizBrain.correctAnswers[questionNumber]) {
-                            debugPrint("Correcct");
-                            finalScore++;
+                    ),
+                    MaterialButton(
+                      color: Colors.blueGrey,
+                      onPressed: () {
+                        if (quizBrain.choices[questionNumber][1] ==
+                            quizBrain.correctAnswers[questionNumber]) {
+                          debugPrint("Correcct");
+                          finalScore++;
+                        } else {
+                          debugPrint("Wrong!");
+                        }
+                        setState(() {
+                          if (questionNumber ==
+                              quizBrain.questions.length - 1) {
+                            Alert(
+                                    context: context,
+                                    title: "Quize Finished",
+                                    desc: "Your Total Score is :$finalScore")
+                                .show();
                           } else {
-                            debugPrint("Wrong!");
+                            questionNumber++;
                           }
-                          setState(() {
-                            if (questionNumber ==
-                                quizBrain.questions.length - 1) {
-                              Alert(
-                                      context: context,
-                                      title: "Quize Finished",
-                                      desc: "Your Total Score is :$finalScore")
-                                  .show();
-                            } else {
-                              questionNumber++;
-                            }
-                          });
-                        },
-                        child: Text(
-                          "${quizBrain.choices[questionNumber][1]}",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      )
-                    ],
-                  ),
+                        });
+                      },
+                      child: Text(
+                        "${quizBrain.choices[questionNumber][1]}",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
+                  ],
                 ),
+              ),
+  
                 SizedBox(
                   height: 20,
                 ),
                 Padding(
-                 padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
@@ -217,7 +217,6 @@ class _QuizePageState extends State<QuizePage> {
                 ),
                 Container(
                     child: Row(
-
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     MaterialButton(
@@ -259,4 +258,4 @@ class _QuizePageState extends State<QuizePage> {
       ),
     );
   }
-}
+
